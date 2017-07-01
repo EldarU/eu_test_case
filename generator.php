@@ -19,7 +19,7 @@ if (is_array($countries) && count($countries)) {
     }
 }
 
-for($i=1; $i <= 3000; $i++) {
+for($i=1; $i <= 10000; $i++) {
     for($j=1; $j<= 3; $j++) {
         foreach ($counts as $cnts) {
             $db->insert('counter', array(

@@ -15,15 +15,13 @@
     </div>
 </form>
 <script>
-    var url = 'export.php';
-
     function getResults() {
         var data = {
             result : $('#result option:selected').val(),
         }
 
         $.ajax({
-            url: url,
+            url: 'export.php',
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'GET',

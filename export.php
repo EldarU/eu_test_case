@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             return_json($db);
             break;
         case "csv":
-            return_csv($db)ж
+            return_csv($db);
             break;
         default:
             echo "Please select report format"

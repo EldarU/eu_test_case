@@ -23,6 +23,7 @@ function getActionTitle($id) {
 }
 
 function getReport($db) {
+    $arrRes = array();
     $query = $db->query("SELECT cn.`country`, cn.`action`, SUM(cn.counter) AS `count`
                         FROM counter AS cn
                         INNER JOIN  (SELECT `country`, SUM(`counter`) AS `sum`
@@ -34,23 +35,34 @@ function getReport($db) {
                         GROUP BY country, `action`
                         ORDER BY `count` DESC");
     $res = $query->result_array();
-    $arrRes = array();
-    foreach ($res as $value) {
-        $arrRes[$value['country']][getActionTitle($value['action'])] = $value['count'];
+    if (!empty($res)) {
+        foreach ($res as $value) {
+            $arrRes[$value['country']][getActionTitle($value['action'])] = $value['count'];
+        }
     }
     return $arrRes;
 }
 
 function return_json($db) {
+    $data = getReport($db);
+    if (empty($data)) {
+        echo "There are no any data to report";
+        return;
+    }
     header('Content-disposition: attachment; filename=file.json');
     header('Content-Type: application/json;charset=ascii');
-    echo json_encode(getReport($db));
+    echo json_encode($data);
 }
 
 function return_csv($db) {
+    $data = getReport($db);
+    if (empty($data)) {
+        echo "There are no any data to report";
+        return;
+    }
     $f = fopen('php://memory', 'w');
     fputcsv($f, array("Country","Event","Counter"), ";"); 
-    foreach (getReport($db) as $country => $line) { 
+    foreach ($data as $country => $line) { 
         foreach ($line as $event => $count) {
             fputcsv($f, array($country, $event, $count), ";"); 
         }

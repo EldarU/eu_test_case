@@ -665,9 +665,6 @@ class Database
     }
 
     /**
-     * MySQL compatibility method mysqli_result
-     * http://www.php.net/manual/en/class.mysqli-result.php#109782
-     *
      * @param mysqli_result $res
      * @param int $row
      * @param int $field

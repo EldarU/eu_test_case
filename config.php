@@ -13,3 +13,11 @@ $db_pass = '1';
 const VIEW = 1;
 const PLAY = 2;
 const CLICK = 3;
+
+function getEventType($type) {
+    switch($type) {
+        case VIEW : return 'View';
+        case PLAY : return 'Play';
+        case CLICK : return 'Click';
+    }
+}

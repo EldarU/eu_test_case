@@ -17,17 +17,13 @@
 <script>
     function getResults() {
         var data = {
-            result : $('#result option:selected').val(),
+            action : $('#result option:selected').val(),
         }
 
         $.ajax({
             url: 'export.php',
-            dataType: 'json',
-            contentType: 'application/json;charset=ascii',
-            method: 'GET',
             type: 'GET',
-            traditional: true,
-            data: JSON.stringify(data),
+            data: data,
             success: function (data) {
                 console.log(data);
             }

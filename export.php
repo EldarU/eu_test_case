@@ -10,7 +10,7 @@ try {
 
 function getActionTitle($id) {
     switch($id) {
-        case VIEW: 
+        case VIEW:
             return 'VIEW';
             break;
         case PLAY:
@@ -49,12 +49,12 @@ function return_json($db) {
 
 function return_csv($db) {
     $f = fopen('php://memory', 'w');
-    fputcsv($f, array("Country","Event","Counter"), ";"); 
-    foreach (getReport($db) as $country => $line) { 
+    fputcsv($f, array("Country","Event","Counter"), ";");
+    foreach (getReport($db) as $country => $line) {
         foreach ($line as $event => $count) {
-            fputcsv($f, array($country, $event, $count), ";"); 
+            fputcsv($f, array($country, $event, $count), ";");
         }
-        
+
     }
     fseek($f, 0);
     header('Content-Type: application/csv');
@@ -63,11 +63,12 @@ function return_csv($db) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $action = $_GET['action'];
+
     switch($action) {
-        case "json":
+        case JSON:
             return_json($db);
             break;
-        case "csv":
+        case CSV:
             return_csv($db);
             break;
         default:

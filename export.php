@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-require 'database.php';
+require 'models/config.php';
+require 'models/database.php';
 
 try {
     $db = new Database($db_name, $db_user, $db_pass, $db_host);

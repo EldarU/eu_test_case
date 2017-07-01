@@ -1,6 +1,6 @@
 <?php
-require_once 'config.php';
-require_once 'database.php';
+require_once 'models/config.php';
+require_once 'models/database.php';
 
 try {
     $db = new Database($db_name, $db_user, $db_pass, $db_host);
@@ -18,7 +18,7 @@ $countries = $res->result_array();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="view/style.css">
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -31,10 +31,10 @@ $countries = $res->result_array();
                         <div class="container">
                             <div class="row">
                                 <div class="bodered">
-                                    <?php include_once 'form.php';?>
+                                    <?php include_once 'view/form.php';?>
                                 </div>
                                 <div class="bodered">
-                                    <?php include_once 'formatted_data.php';?>
+                                    <?php include_once 'view/formatted_data.php';?>
                                 </div>
                             </div>
                         </div>

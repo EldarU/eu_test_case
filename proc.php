@@ -6,10 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = array();
 //    $postdata = file_get_contents("php://input");
     $data = json_decode(file_get_contents('php://input'), true);
-    print_r($data);
-    die;
-    $event = intval($_POST['event']);
-    $country = strval($_POST['country']);
+
+    $event = $data['event'];
+    $country = $data['country'];
     if(!isset($event)) {
         $error[] = "Please set event type";
     }
@@ -29,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'country' => $country,
             'date' => date('Y-m-d')
         ));
-        $event = $res->result_array();
-        if (!$event) {
+        $events = $res->result_array();
+        if (!$events) {
             $db->insert('counter', array(
                 'action' => $event,
                 'country' => $country,
@@ -40,10 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->update('counter', array(
                 'action' => $event,
                 'country' => $country,
-                'date' => date('Y-m-d')
+                'date' => date('Y-m-d'),
+                'counter' => ++$events[0]['counter'],
+            ), array(
+                'id' => $events[0]['id']
             ));
         }
-        echo "<pre>hererrerere<br/>";
-        print_r($event);
     }
 }

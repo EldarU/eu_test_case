@@ -31,20 +31,17 @@
         country, event;
 
     function sendResult() {
-        /*e.preventDefault();
-        e.stopPropagination();
-        country = $('#country').is('selected').val();
-        event = $('#event').is('selected').val();
-        alert(country);return false;*/
+        var data = {
+            country : $('#country option:selected').val(),
+            event : $('#event option:selected').val(),
+        }
+
         $.ajax({
             url: url,
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'POST',
-            data: {
-                'county': 'US',
-                'event': 'click',
-            },
+            data: data,
             success: function (data) {
                 console.log(data);
             }

@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             return_csv($db);
             break;
         default:
-            echo "Please select report format"ж
+            echo "Please select report format";
             break;
     }
 }

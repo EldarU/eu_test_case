@@ -36,7 +36,6 @@ $countries = $res->result_array();
                                 <div class="bodered">
                                     <?php include_once 'formatted_data.php';?>
                                 </div>
-                                <?php include_once 'table.php';?>
                             </div>
                         </div>
                     </div>

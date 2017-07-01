@@ -10,12 +10,18 @@ try {
 
 $res = $db->select('countries');
 $states = $res->result_array();
-//echo "<pre>";
-//print_r($states);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-//    $db->select('counter', $where)
+    $error = array();
+    if(!isset($_POST['event'])) {
+        $error[] = "Please set event type";
+    }
+    if(!isset($_POST['country'])) {
+        $error[] = "Please set country";
+    }
+    if (!$error) {
+        $db->select('counter', )
+    }
 }
 ?>
 <!DOCTYPE html>

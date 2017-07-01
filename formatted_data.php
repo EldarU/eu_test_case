@@ -26,8 +26,8 @@
             url: url,
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
-            method: 'POST',
-            type: 'POST',
+            method: 'GET',
+            type: 'GET',
             traditional: true,
             data: JSON.stringify(data),
             success: function (data) {

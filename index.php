@@ -11,18 +11,6 @@ try {
 $res = $db->select('countries');
 $states = $res->result_array();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $error = array();
-    if(!isset($_POST['event'])) {
-        $error[] = "Please set event type";
-    }
-    if(!isset($_POST['country'])) {
-        $error[] = "Please set country";
-    }
-    if (!$error) {
-        $db->select('counter', 1);
-    }
-}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

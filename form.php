@@ -21,8 +21,35 @@
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <input type="submit" id="btn" class="btn btn-primary" type="button" value="Submit"/>
+                <button id="btn" class="btn btn-primary" onClick="sendResult();return false;" type="button">Submit</button>
             </div>
         </div>
     </div>
 </form>
+<script>
+    var url = 'proc.php',
+        country, event;
+
+    function sendResult() {
+        /*e.preventDefault();
+        e.stopPropagination();
+        country = $('#country').is('selected').val();
+        event = $('#event').is('selected').val();
+        alert(country);return false;*/
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            contentType: 'application/json;charset=ascii',
+            method: 'POST',
+            data: {
+                'county': 'US',
+                'event': 'click',
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
+
+</script>

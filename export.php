@@ -61,5 +61,17 @@ function return_csv($db) {
     header('Content-Disposition: attachment; filename=report.csv;');
     fpassthru($f);
 }
-return_json($db);
-//print_r(getReport($db));;
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $action = $_GET['action'];
+    switch($action) {
+        case "json":
+            return_json($db);
+            break;
+        case "csv":
+            return_csv($db)ж
+            break;
+        default:
+            echo "Please select report format"
+            break;
+    }
+}

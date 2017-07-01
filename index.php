@@ -30,8 +30,11 @@ $countries = $res->result_array();
                     <div id="page-content">
                         <div class="container">
                             <div class="row">
-                                <div class="form">
+                                <div class="bodered">
                                     <?php include_once 'form.php';?>
+                                </div>
+                                <div class="bodered">
+                                    <?php include_once 'formatted_data.php';?>
                                 </div>
                                 <?php include_once 'table.php';?>
                             </div>

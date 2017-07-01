@@ -41,10 +41,12 @@
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'POST',
-            data: {
+            type: 'POST',
+            traditional: true,
+            data: JSON.stringify({
                 'county': 'US',
                 'event': 1,
-            },
+            }),
             success: function (data) {
                 console.log(data);
             }

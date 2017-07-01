@@ -13,6 +13,7 @@ $db_pass = '1';
 const VIEW = 1;
 const PLAY = 2;
 const CLICK = 3;
+
 const JSON = 10;
 const CSV = 11;
 

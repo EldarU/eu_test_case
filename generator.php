@@ -25,7 +25,8 @@ for($i=1; $i <= 10000; $i++) {
             $db->insert('counter', array(
                 'action' => $j,
                 'country' => $cnts,
-                'date' => date('Y-m-d',strtotime($date1 . "-$i days"))
+                'date' => date('Y-m-d',strtotime($date1 . "-$i days")),
+                'counter' => mt_rand(1, 2000)
             ));
         }
     }

@@ -49,7 +49,9 @@
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'POST',
-            data: data,
+            type: 'POST',
+            traditional: true,
+            data: JSON.stringify(data),
             success: function (data) {
                 console.log(data);
             }

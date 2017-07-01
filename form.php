@@ -41,12 +41,13 @@
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'POST',
-            data: data,
+            data: {
+                'county': 'US',
+                'event': 1,
+            },
             success: function (data) {
                 console.log(data);
             }
         });
     }
-
-
 </script>

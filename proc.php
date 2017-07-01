@@ -39,10 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->update('counter', array(
                 'action' => $event,
                 'country' => $country,
-                'date' => date('Y-m-d')
+                'date' => date('Y-m-d'),
+                'counter' => ++$events[0]['counter'],
+            ), array(
+                'id' => $events[0]['id']
             ));
         }
-        echo "<pre>hererrerere<br/>";
-        print_r($event);
     }
 }

@@ -9,7 +9,7 @@ try {
 }
 
 $res = $db->select('countries');
-$states = $res->result_array();
+$countries = $res->result_array();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = array();

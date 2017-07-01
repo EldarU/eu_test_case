@@ -12,8 +12,12 @@
             <div class="form-group col-sm-3">
                 <label for="country">Country</label>
                 <select class="form-control" id="country">
-                    <option value="US">USA</option>
-                    <option value="CA">Canada</option>
+                    <option value="US">Select Country</option>
+                    <?php if (is_array($countries) && count($countries)) { ?>
+                        <?php foreach ($countries as $country) { ?>
+                            <option value="<?=$country['code'];?>"><?=$country['title'];?></option>
+                        <?php } ?>
+                    <?php } ?>
                 </select>
             </div>
             <div class="form-group col-md-4">

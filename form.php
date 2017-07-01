@@ -12,7 +12,7 @@
             <div class="form-group col-sm-3">
                 <label for="country">Country</label>
                 <select class="form-control" id="country">
-                    <option value="US">Select Country</option>
+                    <option value="">Select Country</option>
                     <?php if (is_array($countries) && count($countries)) { ?>
                         <?php foreach ($countries as $country) { ?>
                             <option value="<?=$country['code'];?>"><?=$country['title'];?></option>
@@ -31,9 +31,17 @@
         country, event;
 
     function sendResult() {
+        if ($('#country option:selected').val() != 0) {
+            country = $('#country option:selected').val();
+        } else {
+            alert('Need to select country');
+            return false;
+        }
+        event = $('#event option:selected').val();
+
         var data = {
-            country : $('#country option:selected').val(),
-            event : $('#event option:selected').val(),
+            country : country,
+            event : event,
         }
 
         $.ajax({

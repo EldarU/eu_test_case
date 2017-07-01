@@ -41,10 +41,7 @@
             dataType: 'json',
             contentType: 'application/json;charset=ascii',
             method: 'POST',
-            data: {
-                'county': 'US',
-                'event': 1,
-            },
+            data: data,
             success: function (data) {
                 console.log(data);
             }
